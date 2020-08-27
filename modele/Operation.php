@@ -18,6 +18,10 @@ class Operation {
      */
     private $libelle;
     /**
+     * @ORM\Column(type="string")
+     */
+    private $dateOperation;
+    /**
      * Many Operation have one Compte. This is the owning side.
      * @ORM\ManyToOne(targetEntity="Compte", inversedBy="Operations")
      * @ORM\JoinColumn(name="Compte_id", referencedColumnName="id")
@@ -41,6 +45,9 @@ class Operation {
     public function getLibelle() {
         return $this->libelle;
     }
+    public function getDateOperation() {
+        return $this->dateOperation;
+    }
     public function getCompte() {
         return $this->compte;
     }
@@ -54,6 +61,9 @@ class Operation {
     }
     public function setLibelle($libelle) {
         $this->libelle = $libelle;
+    }
+    public function setDateOperation($dateOperation) {
+        $this->dateOperation = $dateOperation;
     }
     public function setCompte($compte) {
         $this->compte = $compte;
